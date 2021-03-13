@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Untitled Document</title>
+<style type="text/css">
+<!--
+.style1 {
+	font-family: "Courier New", Courier, mono;
+	font-size: 18px;
+}
+body,td,th {
+	color: #FFFFFF;
+}
+body {
+	background-color: #990000;
+}
+-->
+</style>
+<TITLE>JavaScript Index</TITLE>
+
+<script Language="JavaScript">
+
+// Navigation - Start
+
+function goback(){
+
+alert("Good Bye!");
+
+history.go(-1);
+
+}
+
+function gettheDate() {
+
+Todays = new Date();
+
+TheDate = "" + (Todays.getMonth()+ 1) +" / "+ Todays.getDate() + " / " + (Todays.getYear() + 1900) 
+
+document.clock.thedate.value = TheDate;
+
+}
+
+// Navigation - Stop
+
+// Netscapes Clock - Start
+
+// this code was taken from Netscapes JavaScript documentation at
+
+// www.netscape.com on Jan.25.96
+
+
+
+var timerID = null;
+
+var timerRunning = false;
+
+function stopclock (){
+
+	if(timerRunning)
+
+		clearTimeout(timerID);
+
+	timerRunning = false;
+
+}
+
+
+
+function startclock () {
+
+	// Make sure the clock is stopped
+
+	stopclock();
+
+	gettheDate()
+
+	showtime();
+
+}
+
+
+
+function showtime () {
+
+	var now = new Date();
+
+	var hours = now.getHours();
+
+	var minutes = now.getMinutes();
+
+	var seconds = now.getSeconds()
+
+	var timeValue = "" + ((hours >12) ? hours -12 :hours)
+
+	timeValue += ((minutes < 10) ? ":0" : ":") + minutes
+
+	timeValue += ((seconds < 10) ? ":0" : ":") + seconds
+
+	timeValue += (hours >= 12) ? " P.M." : " A.M."
+
+	document.clock.face.value = timeValue;
+
+	// you could replace the above with this
+
+	// and have a clock on the status bar:
+
+	// window.status = timeValue;
+
+	timerID = setTimeout("showtime()",1000);
+
+	timerRunning = true;
+
+}
+
+// Netscapes Clock - Stop
+
+
+
+// end Helpers -->
+
+</script>
+
+</HEAD>
+
+
+
+<BODY bgcolor="#00FFFF" onLoad="startclock()">
+
+<table border>
+<tr>
+
+   <td><form name="clock" onSubmit="0"></td>
+
+</tr>
+<tr>
+
+   <td colspan=2>Hoy es: <input type="text" name="thedate" size=9
+
+           value=""></td>
+
+   <td colspan=2>La hora es: <input type="text" name="face" size=9
+
+           value=""></td></form>
+
+</head>
+
+<body>
+<div id="Layer1" style="position:absolute; left:277px; top:12px; width:465px; height:51px; z-index:1">
+  <p align="center" class="style1">Centro de Computo </p>
+  <p align="center" class="style1">Alquicira Mundo Alexis </p>
+</div>
+<div id="Layer4" style="position:absolute; left:963px; top:32px; width:37px; height:36px; z-index:4"><img src="Flecha.png" width="35" height="34" border="0" usemap="#Map">
+  <map name="Map">
+    <area shape="rect" coords="1,0,35,33" href="m_frame.htm" target="mainFrame">
+  </map>
+</div>
+
+</body>
+</html>
